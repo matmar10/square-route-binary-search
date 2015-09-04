@@ -50,6 +50,6 @@ module.exports = function (x) {
     }
 
   // good enough guess
-  console.log('Guess good enough:');
+  // console.log('Guess good enough:');
   return start.plus(end).div(2).valueOf();
 };
