@@ -1,0 +1,14 @@
+{
+  "name": "sqrt",
+  "version": "0.0.0",
+  "description": "Find the square route using binary search",
+  "main": "sqrt.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Matthew J. Martin",
+  "license": "ISC",
+  "dependencies": {
+    "big.js": "^3.1.3"
+  }
+}
