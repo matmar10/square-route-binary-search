@@ -5,6 +5,8 @@ var Big = require('big.js');
 
 module.exports = function (x) {
 
+    console.log('Finding for ', x);
+
     x = new Big(x);
 
     var start, end, mid, guess,
@@ -20,6 +22,13 @@ module.exports = function (x) {
 
     start = new Big(0);
     end = new Big(x);
+
+    // the other trick!
+    // less than one search space starting point is different
+    if(x.lt(1)) {
+      start = new Big(x);
+      end = new Big(1);
+     }
 
     // this is the trick; don't keep searching forever
     while (end.minus(start).gte(precision)) {
@@ -39,6 +48,7 @@ module.exports = function (x) {
       // need to search larger half
       if (guess.lt(x)) {
         // console.log('Guess < x');
+        // console.log('New end minus start: ', end.minus(start).toString());
         start = mid;
         continue;
       }
@@ -47,7 +57,11 @@ module.exports = function (x) {
       // need to search smaller half
       // e.g. guess > x
       end = mid;
+
+      // console.log('New end minus start: ', end.minus(start).toString());
     }
+
+    // console.log('End minus start: ', end.minus(start).toString());
 
   // good enough guess
   // console.log('Guess good enough:');
